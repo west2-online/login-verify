@@ -25,4 +25,12 @@ def get_login_validateCode():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0',8081)
+    from hypercorn.config import Config
+    from hypercorn.asyncio import serve
+
+    config = Config()
+    config.bind = ["0.0.0.0:8081"]
+    config.http2 = True  # 启用 HTTP/2
+
+    import asyncio
+    asyncio.run(serve(app, config))

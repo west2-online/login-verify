@@ -7,4 +7,6 @@
 2. gunicorn 的 bind
 3. dockerfile 的expose
 
-注：docker 的 net=host 模式似乎不可用
+注：
+1. docker 的 net=host 模式似乎不可用
+2. 本地使用 docker 构建时只支持 amd64 架构
